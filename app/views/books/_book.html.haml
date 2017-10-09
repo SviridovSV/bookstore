@@ -22,15 +22,15 @@
               %a.input-link.quantity-plus{href: "#"}
                 %i.fa.fa-plus.line-height-40
           .col-xs-7.col-md-5
-            = f.submit t('add_cart'), class: "btn btn-default pull-right general-position #{"disabled" unless book.in_stock?}", id: "add_button"
+            = f.submit t('add_cart'), class: "btn btn-default pull-right general-position #{"disabled" unless book.in_stock?}", id: "add-button"
     - if @book.description.present?
       .card
         %p= t('description')
-        %p.in-grey-600.small.line-height-2{id: "short_desc"}
+        %p.in-grey-600.small.line-height-2{id: "short-desc"}
           = @book.short_description
-        %p.in-grey-600.small.line-height-2{style: "display: none", id: "full_desc"}
+        %p.in-grey-600.small.line-height-2{style: "display: none", id: "full-desc"}
           = @book.description
-          = link_to t('hide'), "#", class: "in-gold-500 ml-10", id: "hide_link"
+          = link_to t('hide'), "#", class: "in-gold-500 ml-10", id: "hide-link"
     - if @book.year.present?
       .card
         .clearfix

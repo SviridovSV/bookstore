@@ -73,6 +73,6 @@ feature 'Book' do
        wait_for_ajax
     }.to change(Order, :count).by(1)
     expect(find('.shop-quantity')).to have_content('1')
-    expect(page).to have_css('#add_button.disabled')
+    expect(page).to have_css('#add-button.disabled')
   end
 end

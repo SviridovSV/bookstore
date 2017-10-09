@@ -17,7 +17,7 @@ describe BookDecorator do
     context 'when description longer than 350' do
       it 'return cut description with link' do
         expect(book.short_description).to eq(book.description.slice(0, 347) +
-        "...<a class=\"in-gold-500 ml-10\" id=\"read_link\" href=\"#\">Read More</a>")
+        "...<a class=\"in-gold-500 ml-10\" id=\"read-link\" href=\"#\">Read More</a>")
       end
     end
 

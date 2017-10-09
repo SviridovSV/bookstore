@@ -1,25 +1,27 @@
 $(document).ready ->
-  $('#read_link').click (event) ->
-    event.preventDefault()
-    $('#full_desc').toggle(true)
-    $('#short_desc').toggle(false)
+  if (document.getElementById("books/show"))
+    $('#read-link').click (event) ->
+      event.preventDefault()
+      $('#full-desc').toggle(true)
+      $('#short-desc').toggle(false)
 
-  $('#hide_link').click (event) ->
-    event.preventDefault()
-    $('#full_desc').toggle(false)
-    $('#short_desc').toggle(true)
+    $('#hide-link').click (event) ->
+      event.preventDefault()
+      $('#full-desc').toggle(false)
+      $('#short-desc').toggle(true)
 
-  $('.quantity-plus').click (event) ->
-    event.preventDefault()
-    old_value = parseInt($('.quantity-input').val())
-    $('.quantity-input').val(old_value + 1)
+    $('#add-button').click (event) ->
+      $('#add-button').addClass('disabled')
+      $('#buttons').toggle(false)
 
-  $('.quantity-minus').click (event) ->
-    event.preventDefault()
-    old_value = parseInt($('.quantity-input').val())
-    if old_value > 1
-      $('.quantity-input').val(old_value - 1)
+  if (document.getElementById("books/show") || document.getElementById("carts/show"))
+    $('.quantity-plus').click (event) ->
+      event.preventDefault()
+      old_value = parseInt($('.quantity-input').val())
+      $('.quantity-input').val(old_value + 1)
 
-  $('#add_button').click (event) ->
-    $('#add_button').addClass('disabled')
-    $('#buttons').toggle(false)
+    $('.quantity-minus').click (event) ->
+      event.preventDefault()
+      old_value = parseInt($('.quantity-input').val())
+      if old_value > 1
+        $('.quantity-input').val(old_value - 1)

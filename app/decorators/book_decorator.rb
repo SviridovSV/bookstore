@@ -6,7 +6,7 @@ class BookDecorator < Draper::Decorator
   end
 
   def short_description
-    h.truncate(description, length: 350) {h.link_to "Read More", "#", class: "in-gold-500 ml-10", id: "read_link"}
+    h.truncate(description, length: 350) {h.link_to "Read More", "#", class: "in-gold-500 ml-10", id: "read-link"}
   end
 
   def dimensions_list
