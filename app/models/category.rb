@@ -7,6 +7,6 @@ class Category < ApplicationRecord
 
   def self.home_page_category(params)
     return Category.find(params[:category_id]) if params.include?(:category_id)
-    Category.find_by(:title, Category::MAIN_GATEGORY)
+    Category.find_by(title: Category::MAIN_GATEGORY)
   end
 end

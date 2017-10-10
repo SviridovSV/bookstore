@@ -42,6 +42,6 @@ class OrderItemsController < ApplicationController
   end
 
   def find_order_by_id
-    @order_item = current_order.order_items.find_by_id(params[:id])
+    @order_item = current_order.order_items.find_by(id: params[:id])
   end
 end

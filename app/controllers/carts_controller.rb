@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   end
 
   def update
-    @coupon = Coupon.find_by(:code, params[:coupon_code])
+    @coupon = Coupon.find_by(code: params[:coupon_code])
     @order = current_order
     if @coupon
       @order.update_attribute(coupon: @coupon.discount)

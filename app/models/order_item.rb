@@ -40,7 +40,7 @@ class OrderItem < ApplicationRecord
   end
 
   def order_item_uniq
-    return unless order.order_items.find_by_book_id(book.id)
+    return unless order.order_items.find_by(book_id: book.id)
     errors.add(:order_item, 'is already in cart.')
   end
 end
