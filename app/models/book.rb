@@ -18,6 +18,7 @@ class Book < ApplicationRecord
   scope :title_desc, -> { order(title: :desc) }
   scope :low_price, -> { order(price: :asc) }
   scope :high_price, -> { order(price: :desc) }
+  scope :popular, -> { joins(:order_items).group('id').order('SUM(order_items.quantity) desc') }
 
   SORT_TITLES = {
     latest: 'Newest first',
@@ -27,10 +28,6 @@ class Book < ApplicationRecord
     high_price: 'Price: high to low',
     popular: 'Popular first'
     }.freeze
-
-  def self.popular
-    joins(:order_items).group('id').order('SUM(order_items.quantity) desc')
-  end
 
   def in_stock?
     quantity > 0
