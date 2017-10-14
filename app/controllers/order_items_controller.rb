@@ -1,7 +1,7 @@
 class OrderItemsController < ApplicationController
   after_action :save_user_to_order, only: :create
   after_action { current_order.save }
-  before_action :find_order_by_id, only: [:update, :destroy]
+  load_resource through: :current_order, only: [:update, :destroy]
 
   def create
     @order = current_order
@@ -39,9 +39,5 @@ class OrderItemsController < ApplicationController
     @order_item.quantity = params[:quantity]
     @order_item.save
     redirect_to cart_path, notice: I18n.t('flash.updated')
-  end
-
-  def find_order_by_id
-    @order_item = current_order.order_items.find_by(id: params[:id])
   end
 end
