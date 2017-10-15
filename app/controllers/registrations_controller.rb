@@ -2,7 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
   def address_settings
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     @address = Address.where(user_id: params[:address][:user_id],
-                               address_type: params[:address][:address_type]).first_or_create
+                               address_type: params[:address][:address_type]).first_or_create do |add|
+                                add.update(address_params)
+                              end
     if @address.update(address_params)
       redirect_to edit_user_registration_path, notice: I18n.t('flash.account_updated')
     else

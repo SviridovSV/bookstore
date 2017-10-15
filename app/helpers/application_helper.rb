@@ -18,4 +18,8 @@ module ApplicationHelper
     else key
     end
   end
+
+  def track_number(order)
+    "R #{order.id}"
+  end
 end

@@ -80,13 +80,6 @@ RSpec.describe Order, type: :model do
     end
   end
 
-  describe '#track_number' do
-    it 'return order R + id' do
-      order = Order.create
-      expect(order.track_number).to eq('R' + order.id.to_s)
-    end
-  end
-
   describe '#use_coupon' do
     it 'return 0 if there is no coupon' do
       expect(Order.new.send(:use_coupon)).to eq(0)

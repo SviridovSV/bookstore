@@ -52,10 +52,6 @@ class Order < ApplicationRecord
     addresses.select { |address| address.address_type == type }[0]
   end
 
-  def track_number
-    'R' + id.to_s
-  end
-
   private
 
   def use_coupon

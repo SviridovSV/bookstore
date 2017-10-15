@@ -28,7 +28,7 @@ feature 'Confirm step' do
     expect(page).to have_content(book.description.slice(0, 137))
 
     expect(page).to have_content(@order.created_at.strftime('%m/%d/%Y'))
-    expect(page).to have_content("Order ##{@order.track_number}")
+    expect(page).to have_content("Order #R#{@order.id}")
   end
 
   scenario 'redirect to catalog' do
