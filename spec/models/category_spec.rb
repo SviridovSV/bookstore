@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
   describe '.home_page_category' do
     let(:params) { Hash.new }
     before do
-      @category = create(:category)
+      @category = create(:category)#use let
       @default_category = create(:category, title: Category::MAIN_GATEGORY)
     end
 

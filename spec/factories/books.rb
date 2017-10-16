@@ -1,9 +1,9 @@
 FactoryGirl.define do
   factory :book do
     title FFaker::Book.title
-    price 15
-    quantity 10
-    year 2017
+    price 15 #использовать FFaker
+    quantity 10 #использовать FFaker
+    year 2017 #использовать FFaker
     dimensions H: 2.4, W: 1.3, D: 0.6
     materials 'paper, brick, hardcove'
     description FFaker::HealthcareIpsum.paragraph
@@ -18,6 +18,6 @@ FactoryGirl.define do
                 pre-certification IPA. Pregnancy care claim referral
                 ambulatory care coordinated care medicare supplement
                 lifetime maximum. Independent practice associations
-                appeal ancillary services self administered gag rule laws.'
+                appeal ancillary services self administered gag rule laws.' #использовать FFaker
   end
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :address do
-    first_name 'First'
+    first_name 'First' #исопльзовать FFaker
     last_name 'Last'
     address_name 'Street'
     city 'City'

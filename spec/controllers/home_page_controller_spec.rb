@@ -4,7 +4,7 @@ RSpec.describe HomePageController, type: :controller do
 
   describe "GET #index" do
     before do
-      @category = create(:category, title: 'Mobile development')
+      @category = create(:category, title: 'Mobile development') #use let
       get :index
     end
 

@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe CategoriesController, type: :controller do
   describe 'GET #show' do
     before do
+      #let(:category) { create(:category) }
       @category = create(:category)
       get :show, params: { id: @category }
     end

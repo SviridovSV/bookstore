@@ -19,6 +19,6 @@ class User < ApplicationRecord
   end
 
   def get_address(type)
-    addresses.select { |address| address.address_type == type }[0]
+    addresses.select { |address| address.address_type == type }[0] # [0] => first Дубляж вынести в хелпер
   end
 end

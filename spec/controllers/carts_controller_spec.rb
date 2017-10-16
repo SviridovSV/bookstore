@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe CartsController, type: :controller do
   describe 'GET #show' do
+    #let(:order) { create(:order) }
+    #let(:order_items) { create(:order_item, order: order) }
     before do
       @order = Order.new(order_items: [OrderItem.new])
       allow(controller).to receive(:current_order).and_return(@order)
@@ -22,6 +24,8 @@ RSpec.describe CartsController, type: :controller do
   end
 
   describe 'PATCH #update' do
+    #let(:order) { create(:order) }
+    #let(:coupon) { create(:coupon)}
     before do
       @order = Order.new
       @coupon = create(:coupon)

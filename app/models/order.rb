@@ -15,7 +15,7 @@ class Order < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
   scope :in_progress, -> { where(state: :in_progress) }
-  scope :in_queuen, -> { where(state: :in_queuen) }
+  scope :in_queuen, -> { where(state: :in_queuen) } #Опечатка in_queue должно быть
   scope :in_delivery, -> { where(state: :in_delivery) }
   scope :delivered, -> { where(state: :delivered) }
 
@@ -49,7 +49,7 @@ class Order < ApplicationRecord
 
   def get_address(type)
     return addresses.first if addresses.first.try(:address_type) == 'both'
-    addresses.select { |address| address.address_type == type }[0]
+    addresses.select { |address| address.address_type == type }[0] # [0] => first
   end
 
   private

@@ -7,7 +7,7 @@ RSpec.describe CheckoutsController, type: :controller do
     sign_in user
   end
   let(:user) { create(:user) }
-  let(:order) { create(:order, user_id: user.id) }
+  let(:order) { create(:order, user_id: user.id) } # let(:order) { create(:order, user: user) }
 
   describe 'GET #show' do
     before { allow(controller).to receive(:jump_to) }

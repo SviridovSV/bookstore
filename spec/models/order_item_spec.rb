@@ -32,7 +32,7 @@ RSpec.describe OrderItem, type: :model do
   describe 'Callbacks' do
     before(:each) do
       @order = Order.create
-      @book = Book.create(quantity: 3, price: 2, title: "aaaa")
+      @book = Book.create(quantity: 3, price: 2, title: "aaaa") #use let
       @order_item = OrderItem.new(quantity: 2, book_id: @book.id, order_id: @order.id)
     end
 
