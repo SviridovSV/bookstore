@@ -24,7 +24,7 @@ class CheckoutStepService
     when :payment
       @order.credit_card.try(:persisted?)
     when :confirm
-      @order.in_queuen?
+      @order.in_queue?
     end
   end
 end

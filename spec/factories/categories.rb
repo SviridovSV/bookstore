@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :category do
-    title 'Test' #использовать FFaker
+    title FFaker::Book.genre
   end
 end

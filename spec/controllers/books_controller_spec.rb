@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
   describe 'GET #show' do
+    let(:book) { create(:book) }
     before do
-      @book = create(:book) # let(:book) { create(:book) }
-      get :show, params: { id: @book }
+      get :show, params: { id: book }
     end
 
     it 'assigns the requested book to @book' do
-      expect(assigns(:book)).to eq @book
+      expect(assigns(:book)).to eq book
     end
 
     it '@book should be decorated' do

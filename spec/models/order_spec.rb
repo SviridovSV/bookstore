@@ -10,6 +10,9 @@ RSpec.describe Order, type: :model do
   end
 
   describe 'States' do
+    subject { Order.new }
+    before { subject.save }
+
     it 'Default state is In Progress' do
       expect(subject).to have_state(:in_progress)
     end
@@ -17,7 +20,7 @@ RSpec.describe Order, type: :model do
     it 'After confirm should have state Waiting for processing' do
       subject.user = create(:user)
       subject.confirm
-      expect(subject).to have_state(:in_queuen)
+      expect(subject).to have_state(:in_queue)
     end
 
     it 'After start delivery should have state In Delivery' do
@@ -34,7 +37,7 @@ RSpec.describe Order, type: :model do
     end
 
     it 'Order can be canceled' do
-      expect(subject).to transition_from(:in_delivery, :in_queuen, :in_progress)
+      expect(subject).to transition_from(:in_delivery, :in_queue, :in_progress)
                      .to(:canceled).on_event(:cancel)
     end
   end

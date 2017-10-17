@@ -1,5 +1,5 @@
 $(document).ready ->
-  if (document.getElementById("books/show")) # if $('#books/show').length
+  if $('#books-show').length
     $('#read-link').click (event) ->
       event.preventDefault()
       $('#full-desc').toggle(true)
@@ -14,7 +14,7 @@ $(document).ready ->
       $('#add-button').addClass('disabled')
       $('#buttons').toggle(false)
 
-  if (document.getElementById("books/show") || document.getElementById("carts/show")) #if $('#books/show, #carts/show').length
+  if $('#books-show, #carts-show').length
     $('.quantity-plus').click (event) ->
       event.preventDefault()
       old_value = parseInt($('.quantity-input').val())

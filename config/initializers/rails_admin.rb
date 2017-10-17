@@ -83,7 +83,7 @@ RailsAdmin.config do |config|
     end
 
     state({
-    states: {in_delivery: 'btn-warning', delivered: 'btn-success', canceled: 'btn-danger', in_progress: 'btn-warning', in_queuen: 'btn-warning'},
+    states: {in_delivery: 'btn-warning', delivered: 'btn-success', canceled: 'btn-danger', in_progress: 'btn-warning', in_queue: 'btn-warning'},
     events: {start_delivery: 'btn-success', finish_delivery: 'btn-success', cancel: 'btn-danger'}
     })
   end
