@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include GettingAddress
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
@@ -16,9 +18,5 @@ class User < ApplicationRecord
     user.addresses.create(first_name: auth.info.first_name,
                           last_name: auth.info.last_name,
                           address_type: 'billing')
-  end
-
-  def get_address(type)
-    addresses.select { |address| address.address_type == type }[0]
   end
 end

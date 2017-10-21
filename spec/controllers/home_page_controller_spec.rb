@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe HomePageController, type: :controller do
 
   describe "GET #index" do
+    let!(:category) { create(:category, title: 'Mobile development') }
     before do
-      @category = create(:category, title: 'Mobile development')
+      # @category = create(:category, title: 'Mobile development') #use let
       get :index
     end
 
@@ -12,8 +13,8 @@ RSpec.describe HomePageController, type: :controller do
       expect(session[:forwarding_url]).to eq(request.original_url)
     end
 
-    it 'assigns the requested category to @category' do
-      expect(assigns(:category)).to eq @category
+    it 'assigns the requested category to category' do
+      expect(assigns(:category)).to eq category
     end
 
     it 'renders the :show template' do

@@ -30,10 +30,10 @@ RSpec.describe OrderItem, type: :model do
   end
 
   describe 'Callbacks' do
+    let(:book) { create(:book, quantity: 3, price: 2, title: "aaaa")}
     before(:each) do
       @order = Order.create
-      @book = Book.create(quantity: 3, price: 2, title: "aaaa")
-      @order_item = OrderItem.new(quantity: 2, book_id: @book.id, order_id: @order.id)
+      @order_item = OrderItem.new(quantity: 2, book_id: book.id, order_id: @order.id)
     end
 
     it 'decrease book quantity after create' do

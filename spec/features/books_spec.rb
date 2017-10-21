@@ -1,10 +1,11 @@
 require 'rails_helper'
 
-feature 'Book' do
+feature 'Book', js: true do
   background do
     @book = create(:book, :long_description).decorate
     @user = create(:user)
     visit book_path(@book.id)
+    wait_for_ajax
   end
 
   scenario 'show book info' do
@@ -17,6 +18,7 @@ feature 'Book' do
   end
 
   scenario 'can show and hide description', js: true do
+    expect(page).to have_css('#read-link')
     click_link('Read More')
     wait_for_ajax
     expect(page).to have_content("#{@book.description}")
