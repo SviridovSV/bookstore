@@ -1,0 +1,10 @@
+I"Ì(function() {
+  $(document).ready(function() {
+    return $('#check_clone').change(function(event) {
+      event.preventDefault();
+      return $('#shipping_form').toggle();
+    });
+  });
+
+}).call(this);
+:ET
